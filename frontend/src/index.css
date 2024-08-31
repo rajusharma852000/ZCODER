@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: serif;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+*::-webkit-scrollbar {
+    width: 1px;
+    /* Width of the scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+    background: #010005;
+    /* Color of the scrollbar track */
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #a19d9d;
+    /* Color of the scrollbar thumb */
+    border-radius: 6px;
+    /* Rounding corners */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #f3f0f0;
+    /* Color of the scrollbar thumb when hovered */
+}
+
+
+.glow {
+    text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #ff00ff,
+        0 0 25px #ff00ff,
+        0 0 30px #ff00ff,
+        0 0 35px #ff00ff;
+}
+
+.glow-teal {
+    text-shadow: 0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 15px #fff,
+        0 0 20px #00ffff,
+        0 0 25px #00ffff,
+        0 0 30px #00ffff,
+        0 0 35px #00ffff;
+}
+
+  

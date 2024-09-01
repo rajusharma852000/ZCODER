@@ -10,7 +10,7 @@ const Signup = () => {
     }
     const onSubmit = async (event) => {
         event.preventDefault();
-        const response = await fetch('http://localhost:5000/api/auth/signup', {
+        const response = await fetch('https://zcoder-backend-0wh6.onrender.com/api/auth/signup', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

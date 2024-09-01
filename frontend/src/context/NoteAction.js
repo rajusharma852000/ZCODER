@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { noteContext } from "./Context.js";
 
 const NoteAction = (props) => {
-    const host = "http://localhost:5000";
+    const host = "https://zcoder-backend-0wh6.onrender.com";
     const [notes, setNote] = useState([]);
     const [publicNotes, setPublicNotes] = useState([]);
     const [noteFound, setNoteFound] = useState({});

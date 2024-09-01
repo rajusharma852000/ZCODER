@@ -3,7 +3,10 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
+
+const port = process.env.PORT || 4000;
 app.use(cors());
 connectToMongo();
 
@@ -16,8 +19,8 @@ app.use('/api/auth', require('./routes/auth.routes.js'));
 app.use('/api/note', require('./routes/note.routes.js'));
 app.use('/api/comment', require('./routes/comment.routes.js'));
 
-app.listen(5000, (req, res)=>{
-    console.log("listening the server at http://localhost:5000");
+app.listen(port, (req, res)=>{
+    console.log(`listening the server at http://localhost:${port}`);
 })
 
 

@@ -1,9 +1,9 @@
+require('dotenv').config();
 const connectToMongo = require('./db.js');
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const bodyParser = require('body-parser');
-require('dotenv').config();
 
 
 const port = process.env.PORT || 4000;

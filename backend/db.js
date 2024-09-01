@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const {password} = require('./config.js');
+const password = process.env.PASSWORD;
+
 const mongoURI = `mongodb+srv://rajusharma852000:${encodeURIComponent(password)}@backenddb.qbfyh78.mongodb.net/zcoder?retryWrites=true&w=majority&appName=BackendDB`;
 
 const connectToMongo = async() =>{

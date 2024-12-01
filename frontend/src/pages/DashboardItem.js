@@ -6,7 +6,7 @@ import { authContext } from '../context/Context';
 const DashboardItem = ({ note }) => {
     const navigate = useNavigate();
     const [user, setUser] = useState({});
-    const {getUser, } = useContext(authContext);
+    const {getUser } = useContext(authContext);
 
     const handleOnClick = (noteId) => {
         if (noteId !== null) {

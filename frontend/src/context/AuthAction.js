@@ -9,7 +9,7 @@ const AuthAction = (props) => {
    //signup
     const signup = async (credentials) => {
         try {
-            const response = await fetch('http://localhost:5000/api/auth/signup', {
+            const response = await fetch(`${host}/api/auth/signup`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -27,7 +27,7 @@ const AuthAction = (props) => {
     //login
     const login = async (credentials) => {
         try {
-            const response = await fetch('http://localhost:5000/api/auth/login', {
+            const response = await fetch(`${host}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

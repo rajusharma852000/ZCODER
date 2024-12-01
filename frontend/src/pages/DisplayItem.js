@@ -220,7 +220,7 @@ const DisplayItem = () => {
 
 
               {/* comment section */}
-              <CommentSection noteId={id} username={user?.firstName + " " + user?.lastName} userId={user._id} />
+              <CommentSection noteId={id} username={user?.firstName + " " + user?.lastName} userId={user?._id} />
 
             </div>
           </div>

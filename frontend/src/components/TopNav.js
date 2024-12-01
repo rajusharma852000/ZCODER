@@ -17,14 +17,21 @@ const TopNav = () => {
     }
 
     useEffect(() => {
-        const fetchUser = async () =>{
-            if(localStorage.getItem('auth-token')){
-                const res = await getUser();
-                setUser(res);
-                localStorage.setItem("zcoder-user", JSON.stringify(res));
-            }
+        if(localStorage.getItem('zcoder-user')){
+            const res = localStorage.getItem("zcoder-user");
+            const data = JSON.parse(res);
+            setUser(data);
         }
-        fetchUser();
+        else{
+            const fetchUser = async () =>{
+                if(localStorage.getItem('auth-token')){
+                    const res = await getUser();
+                    setUser(res);
+                    localStorage.setItem("zcoder-user", JSON.stringify(res));
+                }
+            }
+            fetchUser();
+        }
         //eslint-disable-next-line
     }, []);
 

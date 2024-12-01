@@ -1,7 +1,7 @@
 import { commentContext } from "./Context";
 
 const CommentAction = (props) => {
-    const host = "http://localhost:5000";
+    const host = "https://zcoder-backend-0wh6.onrender.com";
 
     const findCommentsByNoteId = async ({ noteId }) => {
         const response = await fetch(`${host}/api/comment/findCommentsByNoteId/${noteId}`, {

@@ -2,7 +2,7 @@ import { authContext } from "./Context.js";
 import React, { useState } from 'react';
 
 const AuthAction = (props) => {
-    const host = "http://localhost:5000";
+    const host = "https://zcoder-backend-0wh6.onrender.com";
     const [leftNavVisibility, setLeftNavVisibility] = useState(true);
     const [shouldRefresh, setShouldReferesh] = useState(true);
 

@@ -1,11 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { RiExternalLinkFill } from "react-icons/ri";
 import { useNavigate } from 'react-router-dom';
 import { authContext } from '../context/Context';
 
 const DashboardItem = ({ note }) => {
     const navigate = useNavigate();
-    const { user, getUser, } = useContext(authContext);
+    const [user, setUser] = useState({});
+    const {getUser, } = useContext(authContext);
 
     const handleOnClick = (noteId) => {
         if (noteId !== null) {
@@ -15,14 +16,25 @@ const DashboardItem = ({ note }) => {
         }
     };
     const own = () => {
-        if (user?._id !== note?.user) {
-            return false;
+        if (user !== undefined && user?._id === note?.user) {
+            return true;
         }
-        return true;
+        return false;
     }
 
     useEffect(() => {
-        getUser();
+        const fetchData = async () =>{
+            if(localStorage.getItem('zcoder-user')){
+                const res = localStorage.getItem("zcoder-user");
+                const data = JSON.parse(res);
+                setUser(data);
+            }
+            else if(localStorage.getItem('auth-token')){
+                const data = await getUser();
+                setUser(data);
+            }
+        }
+        fetchData();
         //eslint-disable-next-line
     }, []);
 

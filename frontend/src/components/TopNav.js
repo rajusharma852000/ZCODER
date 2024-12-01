@@ -2,29 +2,25 @@ import React, { useContext, useEffect, useState } from 'react';
 import { SlMenu } from 'react-icons/sl';
 import { CgClose } from 'react-icons/cg';
 import { IoIosSearch } from 'react-icons/io';
-import { useNavigate, NavLink } from 'react-router-dom';
+import { useNavigate, NavLink, useLocation } from 'react-router-dom';
 import { authContext } from '../context/Context';
 import profileLogo from '../images/profileLogo.jpg';
 
 const TopNav = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({});
-    const {getUser, leftNavVisibility, setLeftNavVisibility} = useContext(authContext);
-    const onClickLogout = () => {
-        localStorage.removeItem('auth-token');
-        localStorage.removeItem('zcoder-user');
-        navigate('/login');
-    }
+    const { getUser, leftNavVisibility, setLeftNavVisibility } = useContext(authContext);
+    const location = useLocation();
 
     useEffect(() => {
-        if(localStorage.getItem('zcoder-user')){
+        if (localStorage.getItem('zcoder-user') !== null) {
             const res = localStorage.getItem("zcoder-user");
-            const data = JSON.parse(res);
+            const data = JSON?.parse(res);
             setUser(data);
         }
-        else{
-            const fetchUser = async () =>{
-                if(localStorage.getItem('auth-token')){
+        else {
+            const fetchUser = async () => {
+                if (localStorage.getItem('auth-token')) {
                     const res = await getUser();
                     setUser(res);
                     localStorage.setItem("zcoder-user", JSON.stringify(res));
@@ -33,9 +29,15 @@ const TopNav = () => {
             fetchUser();
         }
         //eslint-disable-next-line
-    }, []);
+    }, [location]);
 
-    const onClickToogleLeftNav = () =>{
+    const onClickLogout = () => {
+        localStorage.removeItem('auth-token');
+        localStorage.removeItem('zcoder-user');
+        navigate('/login');
+    }
+
+    const onClickToogleLeftNav = () => {
         setLeftNavVisibility(!leftNavVisibility);
     }
 
@@ -81,8 +83,8 @@ const TopNav = () => {
                                     onClick={onClickLogout}
                                 >Signout</button>
                                 <div className="flex h-8 w-auto overflow-hidden rounded-full md:ml-4 text-white">
-                                    <img onClick={()=>{navigate('/profile')}} className='h-8 w-8 rounded-full cursor-pointer' src={user?.profilePicture || profileLogo} alt='' />
-                                    <p onClick={()=>{navigate('/profile')}} className='ml-2 cursor-pointer'>{user?.firstName}</p>
+                                    <img onClick={() => { navigate('/profile') }} className='h-8 w-8 rounded-full cursor-pointer' src={user?.profilePicture || profileLogo} alt='' />
+                                    <p onClick={() => { navigate('/profile') }} className='ml-2 cursor-pointer'>{user?.firstName}</p>
                                 </div>
                             </div>
                         </div>

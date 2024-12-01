@@ -1,6 +1,6 @@
 # Zcoder - A Collaborative Coding Platform
 
-![Zcoder Logo](https://drive.google.com/uc?export=view&id=13_Nk6UCb2kPLmVpiZvqj9w2wJBvgt_IG)  
+![Zcoder Logo](https://drive.google.com/uc?export=view&id=1WD8odUWjzJ7Hy_OXdr_lg-mrMIFilbUe)  
 *Your one-stop platform to organize, share, and discuss coding problems.*
 
 ## Table of Contents
